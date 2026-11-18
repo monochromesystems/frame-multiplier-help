@@ -7,10 +7,10 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/main.css?v=mwls8huw">
-  <link rel="stylesheet" href="assets/css/panels/frame-multiplier.css?v=mwls8huw">
+  <link rel="stylesheet" href="assets/css/main.css?v=mwlsfw7a">
+  <link rel="stylesheet" href="assets/css/panels/frame-multiplier.css?v=mwlsfw7a">
   <script>document.documentElement.classList.replace("no-js", "js")</script>
-  <script type="module" src="assets/js/site.js?v=mwls8huw"></script>
+  <script type="module" src="assets/js/site.js?v=mwlsfw7a"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -155,7 +155,7 @@
       <ol class="hp-steps"><li>Put your finished master frames on one page and put [MASTERS] in its name, for example [MASTERS] Summer sale. Frame Multiplier finds that page by itself. [TEMPLATES] works too, and turns Template mode on.</li><li>Every visible frame or component sitting directly on that page is a master. Hidden frames, and frames inside a section or a group, are not read.</li><li>Design the sizes at the ends of the job, for example a square, a portrait and a landscape. Each frame is laid out from the masters nearest its proportions. Past the widest and the tallest master the layout is held at that master, so add a master for an unusual shape such as a leaderboard or a story.</li><li>Without a [MASTERS] page, pick the page under Setup ▸ Masters. If frame names on a page end in master, the plugin proposes that page and marks it (proposed) for you to check.</li><li>The frames to fill go on other pages: empty frames at the sizes you need, directly on the page. Import brief with AI can make them, and the masters page, from the client&#39;s brief.</li></ol>
     </li>
     <li class="hp-item hp-wide reveal" id="help-components">
-      <h4 class="hp-q">Share components where the masters use the same element</h4>
+      <h4 class="hp-q">Share components across masters</h4>
       <ol class="hp-steps"><li>Make the background, hero, headline, logo and legal components. Where masters use the same element, use instances of the same main component in each of them. That is how Frame Multiplier knows the headline in the square is the headline in the landscape. The masters can vary: one can use a component the others don&#39;t.</li><li>The bg, hero, bg/hero, headline and logo are matched from master to master by their role. Every other layer, legal included, is matched by its component or component set, and failing that by its layer name.</li><li>A layer is blended only between the masters that carry the same component. If one master uses a different headline component, Frame Multiplier takes that as a different layout and doesn&#39;t blend across it.</li><li>A layer that isn&#39;t a shared component and is named differently in each master counts as a different layer in each one. A frame gets it only from its nearest master, laid out from that master alone.</li><li>Layers in a frame that its master doesn&#39;t have are removed when you multiply, unless they are locked or Template mode is on.</li><li>Keep each layer at the same place in the stacking order in every master that has it. A logo on top in one master and behind a panel in another can be added and removed again on every Multiply.</li><li>A main component placed in a master reaches each frame as an instance, so later edits to the component reach every frame through Figma.</li></ol>
     </li>
     <li class="hp-item hp-wide reveal" id="help-concepts">
