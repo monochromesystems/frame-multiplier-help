@@ -1,0 +1,485 @@
+<!doctype html><html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frame Multiplier for Figma help</title>
+  <meta name="description" content="How to use Frame Multiplier for Figma: setting up the masters and their components, what each setting in the panel does and how to roll out a campaign.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/main.css?v=mwlrj6f7">
+  <link rel="stylesheet" href="assets/css/panels/frame-multiplier.css?v=mwlrj6f7">
+  <script>document.documentElement.classList.replace("no-js", "js")</script>
+  <script type="module" src="assets/js/site.js?v=mwlrj6f7"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <main id="main">
+    
+<nav class="localnav theme-light" aria-label="Frame Multiplier help">
+  <span class="localnav-progress" aria-hidden="true"></span>
+  <div class="localnav-content">
+    <a class="localnav-title" href="#overview">Frame Multiplier help</a>
+    <div class="localnav-menu">
+      <ul class="localnav-links">
+        <li><a href="#overview">Overview</a></li><li><a href="#prepare">Prepare</a></li>
+        <li><a href="#panel">User guide</a></li><li><a href="#help">Quick help</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="product-hero hp-hero theme-light" id="overview">
+  <div class="container">
+    <p class="label product-hero-kind">Plugin for Figma</p>
+    <h1 class="t-hero">Frame Multiplier help</h1>
+    <p class="t-subhead product-hero-subhead">Start by preparing your files. The page then explains what each control in the panel does and takes you through the everyday jobs.</p>
+  </div>
+</section>
+<section class="section theme-gray" id="prepare">
+  <div class="container container-wide">
+    <div class="section-head reveal"><span class="section-index">01</span><span class="label">Prepare</span></div>
+    <h2 class="t-l section-title pt-heading reveal">Prepare your Figma file</h2>
+    <p class="pt-intro reveal">Frame Multiplier builds every size from master frames you design yourself, so the file needs setting up before the first Multiply: one masters page, the same components in every master, and a role for each layer. After that, a page of empty frames is filled in one step.</p>
+    
+<div class="hp-group" aria-labelledby="hp-file">
+  <h3 class="hp-name reveal" id="hp-file">Build the campaign in Figma first</h3>
+  <ul class="hp-list">
+    <li class="hp-item hp-wide reveal" id="help-masters-page">
+      <h4 class="hp-q">Make the masters page</h4>
+      <ol class="hp-steps"><li>Put your finished master frames on one page and put [MASTERS] in its name, for example [MASTERS] Summer sale. Frame Multiplier finds that page by itself. [TEMPLATES] works too, and turns Template mode on.</li><li>Every visible frame or component sitting directly on that page is a master. Hidden frames, and frames inside a section or a group, are not read.</li><li>Design the sizes at the ends of the job, for example a square, a portrait and a landscape. Each frame is laid out from the masters nearest its proportions. Past the widest and the tallest master the layout is held at that master, so add a master for an unusual shape such as a leaderboard or a story.</li><li>Without a [MASTERS] page, pick the page under Setup ▸ Masters. If frame names on a page end in master, the plugin proposes that page and marks it (proposed) for you to check.</li><li>The frames to fill go on other pages: empty frames at the sizes you need, directly on the page. Import brief with AI can make them, and the masters page, from the client&#39;s brief.</li></ol>
+    </li>
+    <li class="hp-item hp-wide reveal" id="help-components">
+      <h4 class="hp-q">Use the same components in every master</h4>
+      <ol class="hp-steps"><li>Make the background, hero, headline, logo and legal each a component, and use instances of the same main component in every master. That is how Frame Multiplier knows the headline in the square is the headline in the landscape.</li><li>The bg, hero, bg/hero, headline and logo are matched from master to master by their role. Every other layer, legal included, is matched by its component or component set, and failing that by its layer name.</li><li>A layer is blended only between the masters that carry the same component. If one master uses a different headline component, Frame Multiplier takes that as a different layout and doesn&#39;t blend across it.</li><li>A layer that isn&#39;t a shared component and is named differently in each master counts as a different layer in each one. A frame gets it only from its nearest master, laid out from that master alone.</li><li>Layers in a frame that its master doesn&#39;t have are removed when you multiply, unless they are locked or Template mode is on.</li><li>Keep each layer at the same place in the stacking order in every master. A logo on top in one master and behind a panel in another can be added and removed again on every Multiply.</li><li>A main component placed in a master reaches each frame as an instance, so later edits to the component reach every frame through Figma.</li></ol>
+    </li>
+    <li class="hp-item hp-wide reveal" id="help-concepts">
+      <h4 class="hp-q">Several creatives on one page</h4>
+      <ol class="hp-steps"><li>Masters that share a hero or background component (the same variant), or carry the same [bracket] label in their names, form one concept: one creative and its sizes.</li><li>Masters with different [labels] are always separate concepts, even when they share a component. Label them when two creatives use one hero component with a different photo in each.</li><li>A frame joins the concept whose [label] is in its name, or whose label appears in its name as whole words (summer-sale-portrait carries [summer-sale]). Failing that, it joins the concept whose hero or background component it shares. An empty frame with no label joins the only concept, when there is just one.</li><li>A frame that matches no concept is listed under No master and isn&#39;t filled. A label that is an everyday word in your frame names, such as PORTRAIT or the client&#39;s name, matches every frame.</li></ol>
+    </li>
+  </ul>
+</div>
+<div class="hp-group" aria-labelledby="hp-subject">
+  <h3 class="hp-name reveal" id="hp-subject">The subject of a photo</h3>
+  <ul class="hp-list">
+    <li class="hp-item hp-wide reveal" id="help-focal-path">
+      <h4 class="hp-q">Draw a focal path</h4>
+      <ol class="hp-steps"><li>The focal is the part of a hero or bg/hero picture that must stay in view. The hero is placed by it: the focal&#39;s centre lands where the masters put it, and the picture falls around it.</li><li>With no path drawn, Frame Multiplier reads the subject from the pixels: the transparency of a cut-out, or what stands out in an opaque photo. The Fo column then shows A.</li><li>For the best results, draw a box around the part that matters and name it focal. Draw it inside the layer, in the main component so every instance has it. Hidden or shown, filled or stroke-only, it counts either way: only the name matters.</li><li>Draw one whenever the Fo cell turns red. Red on an A means the guess is costing size: the hero was shrunk on some frames to keep the subject in view.</li><li>Keep the path on the frame on every master; a drawn path that runs off the frame turns the cell red. If the masters crop into the subject on purpose, draw a smaller path around the part every master shows.</li><li>A plain bg has no subject. If the subject of a full-bleed photo matters, give the layer the bg/hero role.</li></ol>
+    </li>
+    <li class="hp-item hp-wide reveal" id="help-collision-path">
+      <h4 class="hp-q">Draw a collision path</h4>
+      <ol class="hp-steps"><li>The collision shape is the part of the hero that keeps clear of the copy. Frame Multiplier uses a closed path named collision inside the layer, else the cut-out&#39;s outline from its transparency, else the whole layer box.</li><li>Draw one around the product in an opaque photo hero. It has no cut-out edge, so without a path its whole box is kept clear of the copy.</li><li>Copy can carry one too. Without one, a headline or legal is measured line by line on its letters, and any other layer on its box.</li><li>A collision path on a copy layer asks the hero to keep clear of it. If a master already puts the hero over that layer, collision stays off for it and Setup shows it in red, naming the master to fix.</li><li>The focal is never used as the collision shape. Draw both when the hero needs both.</li></ol>
+    </li>
+    <li class="hp-item hp-wide reveal" id="help-guides">
+      <h4 class="hp-q">Mark a safe area or a fixed point</h4>
+      <ol class="hp-steps"><li>A rectangle named safe, with no fill, placed directly in a frame is that frame&#39;s safe area. The layout fits inside it, and the background still covers the whole frame. A frame without one is laid out on the whole frame.</li><li>Rectangles named bleed and trim, with no fill, are guides too. Multiply and Clear frames leave all three alone.</li><li>A visible child named pin, with no fill and no stroke, anywhere inside a layer is that layer&#39;s anchor point. The point is held at the same place on the frame in every size, and the P column shows it as an X.</li></ol>
+    </li>
+  </ul>
+</div>
+<div class="hp-group" aria-labelledby="hp-roles">
+  <h3 class="hp-name reveal" id="hp-roles">Give each layer its role</h3>
+  <ul class="hp-list">
+    <li class="hp-item hp-wide reveal" id="help-load">
+      <h4 class="hp-q">Load the plugin and read the masters</h4>
+      <ol class="hp-steps"><li>Open Frame Multiplier in Figma. It opens on the Setup tab.</li><li>Under Masters, check the page chosen in the list, then press Okay. Only the masters are read; the page you are on is left alone.</li><li>Components lists every layer of each concept, one row per component, with the role Frame Multiplier guessed and the P, C, Fo, Co and S settings. The Legend at the foot explains each glyph and column.</li><li>Point at a setting and the strip under the table names it, for example Pin | NE or Collision | ON.</li><li>Name layers for their role and the guess is right first time. A name containing HERO, HEADLINE, BG, LOGO or Disclaimer, in any case, takes that role outright. BG counts only on a full-bleed layer.</li></ol>
+    </li>
+    <li class="hp-item hp-wide reveal" id="help-role-list">
+      <h4 class="hp-q">Choose each role</h4>
+      <ul class="hp-steps hp-ways"><li>Click a role to choose from the list. Your choice is written to every master the layer is in. Each frame has one hero, bg/hero, bg, logo, headline and legal, and a bg/hero stands in for both bg and hero, so a role another layer already holds by your choice is greyed out.</li><li>bg: the full-bleed background. It is scaled up and slid to keep covering the edges the masters cover, with the masters&#39; bleed. It has no subject, so it is never steered off centre. Use it for colour fields, textures and photos whose subject doesn&#39;t matter.</li><li>hero: the hero graphic, such as a cut-out or the key visual. It is never distorted. It is placed by its focal, kept in view, and nudged and then scaled down to keep clear of the copy.</li><li>bg/hero: a hero flattened into the background photo. It covers the frame like a bg, keeps its subject in view like a hero, and is never distorted. To clear the copy it is nudged within what still covers the frame, then scaled down as far as it still covers. Use it for a full-bleed photo whose subject must stay in view.</li><li>headline: placed on its letters, not its text box, so the letters never cross the frame edge. It anchors the way its text is aligned (left edge, centre or right edge), and vertically by its place on the frame: a headline at the top keeps its top, one in the middle stays centred. It is never distorted. A headline outlined to vectors places the same way once it has the role.</li><li>logo: the logo or brand mark. Scaled as a whole and never distorted. It keeps the corner the masters show, or the pin you set.</li><li>legal: small print, measured on its letters and pinned with its margin from the masters. A second block of small print in the same frame is other.</li><li>other: everything else, such as bands, roundels, badges and dividers. Each follows the masters. A flat strip running the full width or height of the frame stretches with it.</li></ul>
+    </li>
+  </ul>
+</div>
+<div class="hp-group" aria-labelledby="hp-options">
+  <h3 class="hp-name reveal" id="hp-options">The options for each layer</h3>
+  <ul class="hp-list">
+    <li class="hp-item reveal" id="help-opt-pin">
+      <h4 class="hp-q">P · Pin</h4>
+      <ul class="hp-steps hp-ways"><li>For headline, logo, legal and other layers. Pin keeps a layer&#39;s offset from a corner of the frame the same in every size.</li><li>Automatic: read from how the layer sits on the masters. A headline shows A, because it is placed by its own rule rather than a pin.</li><li>Click the cell to pick a corner, or ✕ to go back to what the masters show. Set one when a logo or the legal drifts away from its corner.</li><li>A layer that stretches has no Pin cell: the frame places it, and a pin would do nothing.</li></ul>
+    </li>
+    <li class="hp-item reveal" id="help-opt-clamp">
+      <h4 class="hp-q">C · Clamp</h4>
+      <ul class="hp-steps hp-ways"><li>For the hero, bg and bg/hero. Clamp stops an image edge from coming into the frame.</li><li>Hero: an edge that is on or past the frame line on every master is clamped automatically. Click the cell to set one edge, two adjacent edges or an opposite pair (ns or ew), off for no clamp, or ✕ for what the masters show. Only an edge every master already has on or past the frame line can be set; the rest are greyed, naming the master in the way.</li><li>Background: the cell shows the edges the image covers on every master, and NSEW means all four. The image is scaled up and slid to keep them covered. Set fewer, or off for a concept layout whose image will be extended later; the background then follows the masters&#39; size and position.</li><li>Check the letters before you click. A hero clamped sw instead of s slides to the left edge and onto the copy.</li></ul>
+    </li>
+    <li class="hp-item reveal" id="help-opt-focal">
+      <h4 class="hp-q">Fo · Focal</h4>
+      <ul class="hp-steps hp-ways"><li>For the hero and bg/hero. The cell shows where the focal came from: the focal icon for a path you drew, A for one read from the pixels, a faded icon for none.</li><li>There is nothing to click. To change it, draw a path named focal in the layer (Draw a focal path, above).</li><li>Red means it needs you: a drawn path has left the frame (make it smaller), or a guessed one is shrinking the hero (draw one).</li></ul>
+    </li>
+    <li class="hp-item reveal" id="help-opt-collision">
+      <h4 class="hp-q">Co · Collision</h4>
+      <ul class="hp-steps hp-ways"><li>Hero and bg/hero: the bolt is lit while it keeps clear of the copy, and the strip names the shape it uses: Path detected, Auto (Alpha) or Auto (Component). Click it to switch the dodge off, and the hero stays where the masters put it.</li><li>Headline, logo, legal and other: a switch for each component. Lit, the hero keeps clear of that layer; dim, the hero may sit over it.</li><li>Copy starts on, and switches off by itself where a master already puts the hero over it. Other layers start off; switch one on to keep the hero clear of a roundel or a badge.</li><li>Red means you asked for collision, with the switch or a drawn path, but a master puts the hero over the layer. It stays off until you move the copy clear on that master. Click the red cell to accept the overlap.</li><li>When the hero has to move, it nudges first, then scales down. Copy is never moved to clear the hero.</li></ul>
+    </li>
+    <li class="hp-item reveal" id="help-opt-stretch">
+      <h4 class="hp-q">S · Stretch</h4>
+      <ul class="hp-steps hp-ways"><li>What happens to the layer&#39;s shape: corners for uniform (Scale | Constrain), arrows for stretch (Scale | Stretch).</li><li>Automatic: read from the masters. A layer whose proportions change from master to master stretches, and one with Figma&#39;s aspect lock on in every master stays uniform. The hero, bg/hero, headline and logo stay uniform unless you set otherwise.</li><li>Click to go from automatic to uniform, then stretch, then back to automatic. Frame Multiplier never changes the aspect lock in Figma.</li></ul>
+    </li>
+    <li class="hp-item reveal" id="help-opt-saved">
+      <h4 class="hp-q">Where the settings are kept</h4>
+      <ul class="hp-steps hp-ways"><li>Each role and setting you choose is saved on the layer itself, in the Figma file, on every master that component is in. Anyone who opens the file gets the same frames.</li><li>A row sets only its own component. Where several components fill one slot, such as a portrait and a landscape headline, each has its own row and its own settings.</li><li>✕ clears a setting and goes back to what the masters show.</li></ul>
+    </li>
+  </ul>
+</div>
+<div class="hp-group" aria-labelledby="hp-limits">
+  <h3 class="hp-name reveal" id="hp-limits">What it can&#39;t do</h3>
+  <ul class="hp-list">
+    <li class="hp-item hp-wide reveal" id="help-limits">
+      <h4 class="hp-q">Limits</h4>
+      <ul class="hp-steps hp-ways"><li>Only the hero, or the bg/hero, moves to clear the copy, and each frame has one. Copy is never moved off a subject. When the hero can&#39;t get clear it is left where the masters put it, and the card says so.</li><li>A plain bg never moves for the copy, because it has no subject.</li><li>Only frames sitting directly on a page are read. Frames inside a section or a group, and hidden frames, are left out.</li><li>Each layer directly inside a frame is placed as one piece. The layers inside a group, a nested frame or a component are not laid out on their own.</li><li>Layers are measured by their box. With Clip content off, a layer whose content spills past its box is read wrongly; turn Clip content on, or size the container to its content.</li><li>Text is scaled with its layer. Frame Multiplier never edits the words.</li><li>A rotated layer is placed by the box it covers. At anything but a quarter turn it can&#39;t stretch and is scaled uniformly instead, and a rotated picture&#39;s crop is left as it is.</li><li>Past the widest and the tallest master, every layer is held at that master&#39;s layout. A frame far from every master&#39;s proportions gets a note on its card to add a master near its size.</li><li>There is no face detection. On an opaque photo the subject is a guess from what stands out, so draw a focal path where it matters.</li><li>Locked frames, and frames marked Ready for Dev or Completed, are skipped. A locked layer stays where it is.</li></ul>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</section>
+
+<section class="section theme-gray" id="panel">
+  <div class="container container-wide">
+    <div class="section-head reveal"><span class="section-index">02</span><span class="label">The panel</span></div>
+    <h2 class="t-l section-title pt-heading reveal">Every setting, explained</h2>
+    <p class="pt-intro reveal">Frame Multiplier has one panel in Figma with two tabs, Setup and Frames, and its settings behind the cog. Each number marks a part of the panel, and its note lights up when you point at it.</p>
+    
+<section class="pt-group reveal" aria-labelledby="pt-setup">
+  <div class="pt-group-head">
+    <h3 class="pt-group-name" id="pt-setup">Setup</h3>
+    <p class="pt-group-text">Where the masters come from, and the role and behaviour of each of their components when a frame changes shape.</p>
+  </div>
+  <div class="pt" data-panel-tour>
+    <div class="pt-side">
+      <div class="pt-panel">
+        <div class="pt-view" data-view-panel="setup">
+<div class="pt-card fm">
+  <p class="fm-topbar">1 concept · 6 masters · 5 layers</p>
+  <div class="fm-sec"><span class="fm-chev" aria-hidden="true">▶</span><span class="fm-sec-title">Masters</span><span class="fm-meta">[MASTERS] Inferno · 6 masters</span></div>
+  <p class="fm-step">Select your master page</p><div class="pt-hot" data-n="1"><button class="pt-mark" type="button" data-mark="1" aria-label="Note 1">1</button><span class="pt-sel pt-sel-wide">[MASTERS] Inferno</span></div><div class="pt-hot" data-n="2"><button class="pt-mark" type="button" data-mark="2" aria-label="Note 2">2</button><div class="fm-btns"><span class="pt-btn pt-btn-primary">Okay</span></div></div>
+  <div class="fm-sec"><span class="fm-chev" aria-hidden="true">▶</span><span class="fm-sec-title">Components</span><span class="fm-meta">5 layers · 4 inferred</span></div>
+  <div class="fm-table">
+    <div class="fm-hdr">
+      <span class="fm-hdr-role">ROLE</span><div class="pt-hot pt-in" data-n="5"><button class="pt-mark" type="button" data-mark="5" aria-label="Note 5">5</button><span class="fm-col"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 1.5v8M4.5 5.5l3.5 4 3.5-4"/><path d="M3 14h10" stroke-width="1.7"/></svg><b>P</b></span></div><div class="pt-hot pt-in" data-n="6"><button class="pt-mark" type="button" data-mark="6" aria-label="Note 6">6</button><span class="fm-col"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="12" height="12"/><path d="M11 2v12"/></svg><b>C</b></span></div><div class="pt-hot pt-in" data-n="7"><button class="pt-mark" type="button" data-mark="7" aria-label="Note 7">7</button><span class="fm-col"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="4"/><path d="M8 1.5v2.5M8 12v2.5M1.5 8h2.5M12 8h2.5"/></svg><b>Fo</b></span></div><div class="pt-hot pt-in" data-n="8"><button class="pt-mark" type="button" data-mark="8" aria-label="Note 8">8</button><span class="fm-col"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.5 0.5L2 9.5H7L3.5 15.5L14 6.5H8.5Z"/></svg><b>Co</b></span></div><div class="pt-hot pt-in" data-n="9"><button class="pt-mark" type="button" data-mark="9" aria-label="Note 9">9</button><span class="fm-col"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 6V1.5h4M14.5 6V1.5h-4M1.5 10v4.5h4M14.5 10v4.5h-4"/></svg><b>S</b></span></div>
+    </div>
+    <div class="fm-row fm-chiprow"><div class="pt-hot pt-in" data-n="3"><button class="pt-mark" type="button" data-mark="3" aria-label="Note 3">3</button><span class="fm-chip">Inferno</span></div></div>
+    <div class="fm-row"><span class="fm-br">│</span></div>
+    <div class="fm-row fm-layer">
+      <span class="fm-br">├── </span>
+      <span class="fm-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 2.5h3.2a5.5 5.5 0 0 1 0 11H4.5z" stroke-width="1.8"/></svg></span>
+      <span class="fm-name">Disclaimer</span>
+      <span class="fm-rolecell"><span class="fm-role">legal</span></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(135deg)" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span><span class="fm-fi"></span><span class="fm-fi"></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.5 0.5L2 9.5H7L3.5 15.5L14 6.5H8.5Z"/></svg></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 6V1.5h4M14.5 6V1.5h-4M1.5 10v4.5h4M14.5 10v4.5h-4"/></svg></span>
+    </div>
+    <div class="fm-row fm-layer">
+      <span class="fm-br">├── </span>
+      <span class="fm-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="5.5"/></svg></span>
+      <span class="fm-name">M</span>
+      <span class="fm-rolecell"><span class="fm-role">logo</span></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(45deg)" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span><span class="fm-fi"></span><span class="fm-fi"></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.5 0.5L2 9.5H7L3.5 15.5L14 6.5H8.5Z"/></svg></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 6V1.5h4M14.5 6V1.5h-4M1.5 10v4.5h4M14.5 10v4.5h-4"/></svg></span>
+    </div>
+    <div class="fm-row fm-layer">
+      <span class="fm-br">├── </span>
+      <span class="fm-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h10M8 3v10" stroke-width="2"/></svg></span>
+      <span class="fm-name">Inferno</span>
+      <span class="fm-rolecell"><span class="fm-role">headline</span></span><span class="fm-fi is-on"><span class="fm-flag">A</span></span><span class="fm-fi"></span><span class="fm-fi"></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.5 0.5L2 9.5H7L3.5 15.5L14 6.5H8.5Z"/></svg></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 6V1.5h4M14.5 6V1.5h-4M1.5 10v4.5h4M14.5 10v4.5h-4"/></svg></span>
+    </div>
+    <div class="fm-row fm-layer">
+      <span class="fm-br">├── </span>
+      <span class="fm-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path fill="currentColor" stroke="none" d="M8 1.4l2 4.4 4.8.5-3.6 3.2 1 4.7L8 11.8l-4.2 2.4 1-4.7L1.2 6.3 6 5.8z"/></svg></span>
+      <span class="fm-name">Burger</span>
+      <span class="fm-rolecell"><div class="pt-hot pt-in" data-n="4"><button class="pt-mark" type="button" data-mark="4" aria-label="Note 4">4</button><span class="fm-role">hero</span></div></span><span class="fm-fi"></span><span class="fm-fi"></span><span class="fm-fi is-on"><span class="fm-flag">A</span></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M12.5 0.5L2 9.5H7L3.5 15.5L14 6.5H8.5Z"/></svg></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 6V1.5h4M14.5 6V1.5h-4M1.5 10v4.5h4M14.5 10v4.5h-4"/></svg></span>
+    </div>
+    <div class="fm-row fm-layer">
+      <span class="fm-br">└── </span>
+      <span class="fm-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="11" height="11" rx="1"/></svg></span>
+      <span class="fm-name">Red-bg</span>
+      <span class="fm-rolecell"><span class="fm-role">bg</span></span><span class="fm-fi"></span><span class="fm-fi is-on"><span class="fm-mono">NSEW</span></span><span class="fm-fi"></span><span class="fm-fi"></span><span class="fm-fi is-on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M1.5 6V1.5h4M14.5 6V1.5h-4M1.5 10v4.5h4M14.5 10v4.5h-4"/></svg></span>
+    </div>
+  </div>
+  <p class="fm-console">Focal | Auto (Draw in path for best results)</p>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="pt-text">
+      <div class="pt-explain" data-view-notes="setup">
+        <ol class="pt-notes">
+          <li class="pt-note" data-note="1"><span class="pt-num" aria-hidden="true">1</span><div><p class="pt-note-name">Masters page</p><p class="pt-note-text">The page Frame Multiplier reads the masters from. Every visible frame on it is a master. A page named [MASTERS] or [TEMPLATES] is found automatically.</p></div></li>
+          <li class="pt-note" data-note="2"><span class="pt-num" aria-hidden="true">2</span><div><p class="pt-note-name">Okay</p><p class="pt-note-text">Reads the masters on that page and works out each layer&#39;s role and behaviour. It reads only the masters and leaves the page you are on alone.</p></div></li>
+          <li class="pt-note" data-note="3"><span class="pt-num" aria-hidden="true">3</span><div><p class="pt-note-name">Concept</p><p class="pt-note-text">Masters that share a hero or background component, or a [bracket] label, form one concept, so a page can hold several creatives at once. Click a concept to show its masters in Figma.</p></div></li>
+          <li class="pt-note" data-note="4"><span class="pt-num" aria-hidden="true">4</span><div><p class="pt-note-name">Role</p><p class="pt-note-text">Background, hero, bg/hero, headline, logo, legal or other, each with its glyph. Until you pick one, the role is the engine&#39;s guess. A role you pick is set on every master the layer is in.</p></div></li>
+          <li class="pt-note" data-note="5"><span class="pt-num" aria-hidden="true">5</span><div><p class="pt-note-name">P · Pin</p><p class="pt-note-text">Holds the position by a corner or an anchor point. A headline anchors by its place on the frame and its text alignment, with A for automatic.</p></div></li>
+          <li class="pt-note" data-note="6"><span class="pt-num" aria-hidden="true">6</span><div><p class="pt-note-name">C · Clamp</p><p class="pt-note-text">Keeps an image edge from coming into the frame. On a hero, it clamps the edges you set. On a background, it clamps the edges the image covers on every master, and NSEW means all four.</p></div></li>
+          <li class="pt-note" data-note="7"><span class="pt-num" aria-hidden="true">7</span><div><p class="pt-note-name">Fo · Focal</p><p class="pt-note-text">Helps place the image accurately. A means the focal point was found from the picture. For the best results, draw a path named focal.</p></div></li>
+          <li class="pt-note" data-note="8"><span class="pt-num" aria-hidden="true">8</span><div><p class="pt-note-name">Co · Collision</p><p class="pt-note-text">The hero nudges, then scales, to keep clear of the copy. On copy, it is a switch for each component.</p></div></li>
+          <li class="pt-note" data-note="9"><span class="pt-num" aria-hidden="true">9</span><div><p class="pt-note-name">S · Stretch</p><p class="pt-note-text">Choose whether a layer scales uniformly or stretches to fill.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pt-group reveal" aria-labelledby="pt-frames">
+  <div class="pt-group-head">
+    <h3 class="pt-group-name" id="pt-frames">Frames</h3>
+    <p class="pt-group-text">Every frame on the page, scored against its masters, and multiplied in one undo step.</p>
+  </div>
+  <div class="pt" data-panel-tour>
+    <div class="pt-side">
+      <div class="pt-panel">
+        <div class="pt-view" data-view-panel="frames">
+<div class="pt-card fm">
+  <div class="fm-btns"><div class="pt-hot pt-in" data-n="1"><button class="pt-mark" type="button" data-mark="1" aria-label="Note 1">1</button><span class="pt-btn">Scan for updates</span></div><div class="pt-hot pt-in" data-n="2"><button class="pt-mark" type="button" data-mark="2" aria-label="Note 2">2</button><span class="pt-btn pt-btn-primary">Multiply &amp; Update (2)</span></div>
+  </div>
+  <div class="fm-tree">
+    <div class="fm-row fm-chiprow"><span class="fm-chip">Inferno</span><span class="fm-meta">6 masters · 7 frames</span></div>
+    <div class="fm-row"><span class="fm-br">│</span></div><div class="pt-hot" data-n="3"><button class="pt-mark" type="button" data-mark="3" aria-label="Note 3">3</button><div class="fm-row fm-master"><span class="fm-br">├──</span><b class="fm-m">M</b><span class="fm-pill">1080×1920</span><span class="fm-arr">hero:centre|hl:above</span></div></div><div class="fm-row fm-frame"><span class="fm-br fm-br-2">│   ├── </span><span class="fm-pay"><div class="pt-hot pt-in" data-n="4"><button class="pt-mark" type="button" data-mark="4" aria-label="Note 4">4</button><span class="fm-score fm-ok">95</span></div><span class="fm-tick" aria-hidden="true">✓</span><span class="fm-size">1000×1500</span><span class="fm-desc"><span class="fm-locked">'Disclaimer' locked</span> · frame verified</span></span></div><div class="fm-row fm-frame"><span class="fm-br fm-br-2">│   └── </span><span class="fm-pay"><span class="fm-score fm-ok">97</span><span class="fm-tick" aria-hidden="true">✓</span><span class="fm-size">720×1280</span><span class="fm-desc">frame verified</span></span></div><div class="fm-row fm-master"><span class="fm-br">├──</span><b class="fm-m">M</b><span class="fm-pill">1080×1350</span><span class="fm-arr">hero:centre|hl:above</span></div><div class="pt-hot" data-n="5"><button class="pt-mark" type="button" data-mark="5" aria-label="Note 5">5</button><div class="fm-row fm-frame"><span class="fm-br fm-br-2">│   └── </span><span class="fm-pay"><span class="fm-score fm-pred">93</span><span class="fm-tick is-off" aria-hidden="true">✓</span><span class="fm-size">1080×1440</span><span class="fm-desc">frame Multiply ready</span></span></div></div><div class="fm-row fm-master"><span class="fm-br">├──</span><b class="fm-m">M</b><span class="fm-pill">1080×1080</span><span class="fm-arr">hero:right|hl:above</span></div><div class="fm-row fm-frame is-sel"><span class="fm-br fm-br-2">│   ├── </span><span class="fm-pay"><span class="fm-score fm-pred">76</span><span class="fm-tick is-off" aria-hidden="true">✓</span><span class="fm-size">1200×1000</span><span class="fm-desc">frame updates available · Burger box x+4.5% y+17% w−9.1% h−10.9%</span></span></div>
+    <div class="fm-card"><div class="pt-hot" data-n="6"><button class="pt-mark" type="button" data-mark="6" aria-label="Note 6">6</button>
+      <div class="fm-card-head"><span class="fm-card-name">Inferno 1200×1000</span><span class="fm-score fm-pred">76</span></div>
+      <p class="fm-card-meta">ratio 1.2 · hero:right|hl:above · <b class="fm-warn">updates required</b></p>
+      <p class="fm-card-reason">hero nudged 6% to clear copy — −6<br>hero reduced 18% to clear copy — −18</p>
+      <p class="fm-card-reason"><b>Needs</b><br>Burger box x+4.5% y+17% w−9.1% h−10.9%</p>
+      <svg class="fm-preview" viewBox="0 0 300 250" role="img" aria-label="The frame as planned: the hero moved down and made smaller to clear the headline"><rect width="300" height="250" fill="#c8c8c8"/><rect x="19.3" y="30.9" width="161.2" height="79.1" fill="none" stroke="#111" stroke-width="1"/><rect x="19.3" y="36.5" width="161.2" height="15.1" rx="1.5" fill="#111"/><rect x="19.3" y="62.9" width="94" height="15.1" rx="1.5" fill="#111"/><rect x="19.3" y="89.2" width="94" height="15.1" rx="1.5" fill="#111"/><circle cx="209.9" cy="149.8" r="74.9" fill="none" stroke="#3372f6" stroke-width="1.2" stroke-dasharray="3 3"/><circle cx="209.9" cy="178.7" r="61.3" fill="#3372f6"/><rect class="fm-ants" x="148.7" y="117.5" width="122.5" height="122.5" fill="none" stroke="#111" stroke-width="1.2" stroke-dasharray="4 3"/><circle cx="30.1" cy="218.6" r="13.4" fill="#fff"/><rect x="25.2" y="238.4" width="97.9" height="2" fill="#777"/></svg></div><div class="pt-hot pt-in" data-n="7"><button class="pt-mark" type="button" data-mark="7" aria-label="Note 7">7</button><div class="fm-card-btns"><span class="pt-btn">Show in Figma</span><span class="pt-btn">Multiply this one</span><span class="pt-btn">Promote to master</span></div></div>
+      <p class="fm-card-more">▸ Placements (5) · layer ops (0)</p>
+    </div><div class="fm-row fm-frame"><span class="fm-br fm-br-2">│   ├── </span><span class="fm-pay"><span class="fm-score fm-warn">76</span><span class="fm-tick" aria-hidden="true">✓</span><span class="fm-size">300×250</span><span class="fm-desc">frame verified · nudge &amp; scale applied</span></span></div><div class="fm-row fm-frame"><span class="fm-br fm-br-2">│   └── </span><span class="fm-pay"><span class="fm-score fm-ok">96</span><span class="fm-tick" aria-hidden="true">✓</span><span class="fm-size">1200×1200</span><span class="fm-desc">frame verified</span></span></div><div class="fm-row fm-master"><span class="fm-br">├──</span><b class="fm-m">M</b><span class="fm-pill">970×250</span><span class="fm-arr">hero:right|hl:beside</span></div><div class="fm-row fm-frame"><span class="fm-br fm-br-2">│   └── </span><span class="fm-pay"><span class="fm-score fm-ok">98</span><span class="fm-tick" aria-hidden="true">✓</span><span class="fm-size">728×90</span><span class="fm-desc">frame verified</span></span></div>
+    <div class="fm-row fm-unused"><span class="fm-br">└──</span><span class="fm-ic">·</span><span class="fm-desc">2 masters not nearest to any frame here (160×600, 1200×628)</span></div>
+  </div><div class="pt-hot" data-n="8"><button class="pt-mark" type="button" data-mark="8" aria-label="Note 8">8</button><p class="fm-summary"><span class="fm-dot" aria-hidden="true"></span>Scanned Social · 7 frames · 6 masters · 2 to multiply &amp; update</p></div>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="pt-text">
+      <div class="pt-explain" data-view-notes="frames">
+        <ol class="pt-notes">
+          <li class="pt-note" data-note="1"><span class="pt-num" aria-hidden="true">1</span><div><p class="pt-note-name">Scan for updates</p><p class="pt-note-text">Reads every frame on this page and every master again, then works out the plan again. When every frame already matches its masters, it says No updates found.</p></div></li>
+          <li class="pt-note" data-note="2"><span class="pt-num" aria-hidden="true">2</span><div><p class="pt-note-name">Multiply</p><p class="pt-note-text">Fills every frame on the page that would change from its masters, in one undo step. Layers are added, swapped, removed or restacked, then placed. Locked and ready-for-dev frames are left alone, and each frame is read again afterwards to give its verified score.</p></div></li>
+          <li class="pt-note" data-note="3"><span class="pt-num" aria-hidden="true">3</span><div><p class="pt-note-name">Master</p><p class="pt-note-text">M and the master&#39;s size, with the frames nearest its proportions listed under it. It also shows how the master is composed: where its hero sits, and where its headline sits in relation to the hero.</p></div></li>
+          <li class="pt-note" data-note="4"><span class="pt-num" aria-hidden="true">4</span><div><p class="pt-note-name">Score</p><p class="pt-note-text">How well a frame is laid out. It counts the background&#39;s coverage, the subject inside the safe area, overlaps and drift from the masters&#39; proportions, less what any nudge or scale cost. Grey is a forecast from the plan; green, orange and red were measured on the frame as it is.</p></div></li>
+          <li class="pt-note" data-note="5"><span class="pt-num" aria-hidden="true">5</span><div><p class="pt-note-name">What a frame needs</p><p class="pt-note-text">A frame reads Multiply ready while it is empty, and updates available, with the first difference, once it has layers. It reads verified when it matches its plan, along with any nudge or scale it took. A locked layer is named in orange and stays where it is.</p></div></li>
+          <li class="pt-note" data-note="6"><span class="pt-num" aria-hidden="true">6</span><div><p class="pt-note-name">The plan, drawn</p><p class="pt-note-text">Click a frame to see its plan drawn over it: its ratio, how it is composed, what the score found, and the layers that need to change, which march on the preview.</p></div></li>
+          <li class="pt-note" data-note="7"><span class="pt-num" aria-hidden="true">7</span><div><p class="pt-note-name">One frame at a time</p><p class="pt-note-text">Show in Figma selects the frame, Multiply this one fills just this frame, and Promote to master copies it to the masters page.</p></div></li>
+          <li class="pt-note" data-note="8"><span class="pt-num" aria-hidden="true">8</span><div><p class="pt-note-name">What was read</p><p class="pt-note-text">The page, its frames and masters, and how many frames are waiting to be multiplied or updated.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pt-group reveal" aria-labelledby="pt-settings">
+  <div class="pt-group-head">
+    <h3 class="pt-group-name" id="pt-settings">Settings</h3>
+    <p class="pt-group-text">Behind the cog: the panel&#39;s look, how the engine blends masters, and two tools, one that makes frames from a brief and one that clears a page.</p>
+  </div>
+  <div class="pt" data-panel-tour>
+    <div class="pt-side">
+      <div class="pt-panel">
+        <div class="pt-view" data-view-panel="settings">
+<div class="pt-card fm">
+  <p class="fm-set-h">Options</p><div class="pt-hot" data-n="1"><button class="pt-mark" type="button" data-mark="1" aria-label="Note 1">1</button><p class="fm-check"><span class="pt-box is-on" aria-hidden="true"></span>System light/dark mode</p></div>
+  <p class="fm-set-h">Advanced settings</p><div class="pt-hot" data-n="2"><button class="pt-mark" type="button" data-mark="2" aria-label="Note 2">2</button><p class="fm-check"><span class="pt-box is-on" aria-hidden="true"></span>Smart blending</p></div><div class="pt-hot" data-n="3"><button class="pt-mark" type="button" data-mark="3" aria-label="Note 3">3</button><p class="fm-check"><span class="pt-box" aria-hidden="true"></span>Show/hide freeze chips</p></div><div class="pt-hot" data-n="4"><button class="pt-mark" type="button" data-mark="4" aria-label="Note 4">4</button><p class="fm-check"><span class="pt-box" aria-hidden="true"></span>Show/hide Template mode option</p></div>
+  <hr class="pt-rule"><div class="pt-hot" data-n="5"><button class="pt-mark" type="button" data-mark="5" aria-label="Note 5">5</button><div class="fm-btns"><span class="pt-btn">Import brief with AI</span></div></div><div class="pt-hot" data-n="6"><button class="pt-mark" type="button" data-mark="6" aria-label="Note 6">6</button><div class="fm-btns"><span class="pt-btn">Clear frames on this page</span></div></div>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="pt-text">
+      <div class="pt-explain" data-view-notes="settings">
+        <ol class="pt-notes">
+          <li class="pt-note" data-note="1"><span class="pt-num" aria-hidden="true">1</span><div><p class="pt-note-name">System light/dark mode</p><p class="pt-note-text">The panel follows Figma&#39;s light or dark theme. Untick it to choose your own.</p></div></li>
+          <li class="pt-note" data-note="2"><span class="pt-num" aria-hidden="true">2</span><div><p class="pt-note-name">Smart blending</p><p class="pt-note-text">When a frame&#39;s nearest master leaves the hero needing a nudge, Frame Multiplier also tries the masters&#39; other layouts and keeps whichever needs the least correction. Off: it always uses the nearest master&#39;s layout. The setting is saved in the file, so everyone who opens it gets the same frames.</p></div></li>
+          <li class="pt-note" data-note="3"><span class="pt-num" aria-hidden="true">3</span><div><p class="pt-note-name">Freeze chips</p><p class="pt-note-text">Shows chips on the Frames tab for BG, BG/Hero, Hero, Headline, Logo and Other layers. Click one off and that role stays exactly where it is in every frame. Legal has no chip.</p></div></li>
+          <li class="pt-note" data-note="4"><span class="pt-num" aria-hidden="true">4</span><div><p class="pt-note-name">Template mode</p><p class="pt-note-text">Shows Template mode under Masters, which keeps a frame&#39;s extra layers instead of removing them.</p></div></li>
+          <li class="pt-note" data-note="5"><span class="pt-num" aria-hidden="true">5</span><div><p class="pt-note-name">Import brief with AI</p><p class="pt-note-text">Makes pages and empty frames from your brief, in five steps: the job, what to build, a prompt you take to your own AI chat with the brief attached, its answer pasted back, and a review. The plugin never talks to an AI, and the AI never sees the file.</p></div></li>
+          <li class="pt-note" data-note="6"><span class="pt-num" aria-hidden="true">6</span><div><p class="pt-note-name">Clear frames on this page</p><p class="pt-note-text">Takes every layer out of every frame on the page you are on, and never touches the masters page. The first click tells you how many frames; the second clears them.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div>
+</section>
+
+<section class="section theme-light" id="help">
+  <div class="container container-wide">
+    <div class="section-head reveal"><span class="section-index">03</span><span class="label">Help</span></div>
+    <h2 class="t-l section-title pt-heading reveal">Quick help</h2>
+    <p class="pt-intro reveal">Step-by-step instructions for the everyday jobs, and what to do when the panel shows a message. Multiply, Import updates and Clear frames are each one undo step in Figma.</p>
+    
+<div class="hp-group" aria-labelledby="hp-how">
+  <h3 class="hp-name reveal" id="hp-how">How do I…</h3>
+  <ul class="hp-list">
+    <li class="hp-item reveal" id="help-brief">
+      <h4 class="hp-q">Set up a job from a brief</h4>
+      <ol class="hp-steps"><li>Open the cog and click Import brief with AI.</li><li>1 · Job: type the Job number, the client if wanted, and the Campaign, which names the masters page. Tick Key counter to number every frame. The frame names are shown underneath as you type.</li><li>2 · What to build: tick Display (RGB), Print (CMYK) or both. Print frames are made at 1 px = 1 pt, with bleed and safe guides. Tick Single-frame items only to skip video, animation, HTML5 banners, carousels and multi-page documents. Then choose Let the AI decide, or My own pages and name them.</li><li>3 · Prompt: click Copy prompt. Open your AI chat (ChatGPT, Claude, Copilot, Gemini or Grok), attach the brief (Word, Excel, PDF or the email thread) and paste the prompt. It works in five steps, each reply headed STEP n/5. Correct it, or say continue.</li><li>4 · Result: copy the block STEP 5/5 prints, from # studio-tools-brief v1 to the end, and paste it in, or click Load a file…. The panel counts the rows, frames, pages and creatives, and names any line it couldn&#39;t read.</li><li>5 · Review: check the Display and Print tabs and the creative keys. Tick Also create a [MASTERS] page with empty masters if the file has none, then click Build.</li><li>Design the masters on the masters page, then go to each page and press Scan for updates, then Multiply. The plugin never talks to the AI, the AI never sees the Figma file, and nothing about the brief is kept.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-scan">
+      <h4 class="hp-q">Scan a page and read the plan</h4>
+      <ol class="hp-steps"><li>Go to the page with the frames and open the Frames tab. Arriving on a page builds the list from stored data, and the bar reads Built, the page name and the number of frames.</li><li>Press Scan for updates. Every frame on the page and every master is read again, and the plan is worked out again. The bar then reads Scanned, with the frames, the masters and how many are waiting.</li><li>Each concept lists its masters (M and the size), each with the frames nearest it underneath. Each frame shows its score and what it needs: Multiply ready, updates available or verified.</li><li>A score of 90 or more is green, 70 to 89 orange and under 70 red. A grey score is a forecast from the plan; a coloured one was measured on the frame. Each percent the hero is nudged or scaled down costs a point.</li><li>Click a frame to open its card: the score, the arrangement, what the checks found, the Needs list and the plan drawn over a preview. Placements lists the evidence for every layer: the masters it came from, and why it sits where it does.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-multiply-page">
+      <h4 class="hp-q">Multiply the whole page</h4>
+      <ol class="hp-steps"><li>Scan the page.</li><li>Click Multiply × N, where N is the number of frames that would change. The button reads Import updates (N) when all of them already have layers, and Multiply &amp; Update (N) for a mix.</li><li>If any frame scores under 70, the first click lists them instead. Click a frame to see why, or press the button again to apply anyway.</li><li>Each frame is filled from its masters in one undo step, then read again for its verified score. Locked and Ready for Dev frames are left alone.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-multiply-one">
+      <h4 class="hp-q">Multiply one frame</h4>
+      <ol class="hp-steps"><li>Click the frame on the Frames tab to open its card.</li><li>Click Multiply this one.</li><li>If the card shows Scan for updates in its place, the page was built from stored data. Press it to check this frame against the masters, then click Multiply this one.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-update">
+      <h4 class="hp-q">Update the frames after a master changes</h4>
+      <ol class="hp-steps"><li>Edit the master on the masters page.</li><li>Go to the page of frames and press Scan for updates. A page that is already filled offers nothing to apply until you do, because the masters haven&#39;t been read again.</li><li>Click Import updates (N). Only the frames that differ from their plan change. Each row names the first difference, and the card&#39;s Needs list names all of them.</li><li>A frame you moved by hand no longer matches its plan, so Import puts it back. To keep the change, make it in a master, or promote the frame.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-promote">
+      <h4 class="hp-q">Promote a frame to master</h4>
+      <ol class="hp-steps"><li>Click the frame and click Promote to master on its card.</li><li>A copy goes on the masters page, to the right of the masters. MASTER is added to the end of its name, and the concept&#39;s [label] to the front if the masters carry one.</li><li>Press Scan for updates so the new master is used.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-freeze">
+      <h4 class="hp-q">Freeze a role</h4>
+      <ol class="hp-steps"><li>Open the cog and tick Show/hide freeze chips.</li><li>On the Frames tab, click a chip off: BG, BG/Hero, Hero, Headline, Logo or Other layers. That role stays exactly where it is in every frame.</li><li>Multiply. Click the chip again to let the engine place that role.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-clear">
+      <h4 class="hp-q">Clear a page</h4>
+      <ol class="hp-steps"><li>Go to the page and open the cog.</li><li>Click Clear frames on this page. It changes to Remove every layer from N frames on this page — click again.</li><li>Click it again within five seconds. Every layer comes out of every frame on the page. Locked and Ready for Dev frames and the bleed, safe and trim guides stay, and the masters page is never cleared.</li><li>It is one undo step if you didn&#39;t mean it.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-lock-layer">
+      <h4 class="hp-q">Keep one layer where it is in one frame</h4>
+      <p class="hp-a">Lock the layer in Figma. Multiply leaves it where it is and doesn&#39;t remove it, and the frame&#39;s row names it as locked.</p>
+    </li>
+    <li class="hp-item reveal" id="help-other-masters">
+      <h4 class="hp-q">Use a different masters page</h4>
+      <p class="hp-a">On the Setup tab, pick the page under Masters and press Okay. The choice is saved in the file.</p>
+    </li>
+    <li class="hp-item reveal" id="help-why">
+      <h4 class="hp-q">Find out why a frame looks wrong</h4>
+      <ol class="hp-steps"><li>Click the frame. The card draws the plan over the preview: dashed shapes are what the hero keeps clear of, and a cross marks a pin&#39;s point.</li><li>Open Placements and read the layer&#39;s evidence. Held at the one master carrying this component means no other master has that component, so nothing was blended.</li><li>Check that layer&#39;s C and Co cells on the Setup tab, then press Scan for updates.</li></ol>
+    </li>
+  </ul>
+</div>
+<div class="hp-group" aria-labelledby="hp-says">
+  <h3 class="hp-name reveal" id="hp-says">When the panel says…</h3>
+  <ul class="hp-list">
+    <li class="hp-item reveal" id="help-no-masters-page">
+      <h4 class="hp-q">No masters page found — pick one under Setup → Masters.</h4>
+      <p class="hp-a">No page has [MASTERS] or [TEMPLATES] in its name, and none has been chosen. Pick the page under Setup ▸ Masters, or rename it. In a new file, Import brief with AI can make one.</p>
+    </li>
+    <li class="hp-item reveal" id="help-proposed">
+      <h4 class="hp-q">Proposed from frame names — confirm, or pick another.</h4>
+      <p class="hp-a">The page was guessed from frames whose names end in master. Check it is the right page. Pick another in the list, or put [MASTERS] in the page name so it is found for certain.</p>
+    </li>
+    <li class="hp-item reveal" id="help-on-masters">
+      <h4 class="hp-q">On the masters page ([MASTERS]) — switch to a batch page to multiply.</h4>
+      <p class="hp-a">The Frames tab lists the masters here, with what each one holds, and there is nothing to multiply. Go to the page with the frames you want filled. A red mark on a master&#39;s row is a fault on that master; point at it for the fix.</p>
+    </li>
+    <li class="hp-item reveal" id="help-no-master-frames">
+      <h4 class="hp-q">No master frames found.</h4>
+      <p class="hp-a">The masters page has no visible frame sitting directly on it. Move the masters out of any section or group, or pick another page.</p>
+    </li>
+    <li class="hp-item reveal" id="help-built">
+      <h4 class="hp-q">Built Social · 24 frames</h4>
+      <p class="hp-a">Arriving on a page builds the list from stored data. It doesn&#39;t check the frames against the masters, so rows that would say verified are left blank. If the page still has empty frames, the masters are read again and Multiply is ready. Press Scan for updates for the full check.</p>
+    </li>
+    <li class="hp-item reveal" id="help-no-updates">
+      <h4 class="hp-q">No updates found</h4>
+      <p class="hp-a">Every frame on the page matches its masters. Click the button to put Scan for updates back, and scan again after you edit a master.</p>
+    </li>
+    <li class="hp-item reveal" id="help-loop">
+      <h4 class="hp-q">updates available, after every Multiply</h4>
+      <p class="hp-a">Click the frame and read Needs on its card. The usual causes are a layer at a different place in the stacking order in one master, a layer with Clip content off, or a frame moved by hand. Fix the master or the layer, then Scan.</p>
+    </li>
+    <li class="hp-item reveal" id="help-no-master">
+      <h4 class="hp-q">No master</h4>
+      <p class="hp-a">These frames matched no concept, so they aren&#39;t filled. Put the concept&#39;s [label] in the frame name, or give the frame its hero or background component.</p>
+    </li>
+    <li class="hp-item reveal" id="help-low">
+      <h4 class="hp-q">2 frames score under 70 — … Click a frame to see why, or press the button again to apply anyway.</h4>
+      <p class="hp-a">Nothing has been written yet. Click a frame to see what the checks found, or press the button again, which now reads Multiply anyway or Import anyway, to go ahead.</p>
+    </li>
+    <li class="hp-item reveal" id="help-skip">
+      <h4 class="hp-q">skip</h4>
+      <p class="hp-a">The frame is locked, or marked Ready for Dev or Completed in Figma, and is left alone. Unlock it or clear its status to fill it.</p>
+    </li>
+    <li class="hp-item reveal" id="help-in-progress">
+      <h4 class="hp-q">Multiply refused — Clear frames is already in progress.</h4>
+      <p class="hp-a">One change to the file runs at a time. Wait for the bar to finish, then click again. Nothing was written twice.</p>
+    </li>
+    <li class="hp-item reveal" id="help-focal-off">
+      <h4 class="hp-q">Focal path off-screen. Path must remain on frame. Reduce size to fix.</h4>
+      <p class="hp-a">A focal path you drew runs off the frame on a master. Make it smaller so it stays on the frame on every master, then Scan.</p>
+    </li>
+    <li class="hp-item reveal" id="help-subject-off">
+      <h4 class="hp-q">the subject found in the pixels maps entirely off this master.</h4>
+      <p class="hp-a">The subject read from the picture is outside that master&#39;s frame. Multiply still runs, steered by that box. Draw a focal path on the layer if a frame comes out wrong.</p>
+    </li>
+    <li class="hp-item reveal" id="help-clamp-hold">
+      <h4 class="hp-q">Clamp s cannot hold on 1080×1920</h4>
+      <p class="hp-a">A clamp you set is on an edge one master has inside the frame. A clamp holds only where every master puts that edge on or past the frame line. Move the hero out to the edge on that master, or clear the clamp in Setup.</p>
+    </li>
+    <li class="hp-item reveal" id="help-collision-blocked">
+      <h4 class="hp-q">Collision is on, but the masters put the hero over this layer</h4>
+      <p class="hp-a">You switched collision on, or drew a collision path, for a layer a master puts the hero over. It stays off until that master is fixed. Move the copy clear of the hero there, or click the red cell to accept the overlap.</p>
+    </li>
+    <li class="hp-item reveal" id="help-collision-off">
+      <h4 class="hp-q">Collision is off for logo — the hero sits over it on 1 of 3 masters</h4>
+      <p class="hp-a">A master puts the hero over that layer, so it isn&#39;t held clear in this frame either. Click its Co cell on the Setup tab to switch it back on.</p>
+    </li>
+    <li class="hp-item reveal" id="help-add-master">
+      <h4 class="hp-q">consider adding a master near 1200×300</h4>
+      <p class="hp-a">The frame is far from every master&#39;s proportions. Add a master near that size, and the frames around it follow it.</p>
+    </li>
+    <li class="hp-item reveal" id="help-beyond">
+      <h4 class="hp-q">beyond the masters&#39; ratio range — held at the 1080×1920 master</h4>
+      <p class="hp-a">The frame is wider or taller than every master, so each layer is held at that master&#39;s layout. Add a master at that shape.</p>
+    </li>
+    <li class="hp-item reveal" id="help-not-clear">
+      <h4 class="hp-q">could not get clear — left where the masters put it</h4>
+      <p class="hp-a">The hero couldn&#39;t get clear of the copy, so it stays where the masters put it rather than moving for nothing. Often a master already has the hero over that copy.</p>
+    </li>
+    <li class="hp-item reveal" id="help-reading">
+      <h4 class="hp-q">Reading 3 images for subject geometry…</h4>
+      <p class="hp-a">Frame Multiplier is reading the pictures for their cut-out edges and subjects. Until it finishes, the C and Co cells read Reading….</p>
+    </li>
+    <li class="hp-item reveal" id="help-promote-fail">
+      <h4 class="hp-q">Need a masters page and a frame to promote.</h4>
+      <p class="hp-a">No masters page is set, or the frame has gone. Pick the masters page under Setup ▸ Masters and try again.</p>
+    </li>
+    <li class="hp-item reveal" id="help-trial-left">
+      <h4 class="hp-q">Free trial — 5 days left. Multiply is paid after that.</h4>
+      <p class="hp-a">You are in the seven-day trial and everything works. The line goes away when you scan.</p>
+    </li>
+    <li class="hp-item reveal" id="help-subscribe">
+      <h4 class="hp-q">Subscribe to multiply × N</h4>
+      <p class="hp-a">The trial has ended. Click it to open Figma&#39;s checkout. Once Figma confirms, the button reads Multiply again, without a reload. Scan, Setup, the preview and every setting stay free.</p>
+    </li>
+  </ul>
+</div>
+<div class="hp-group" aria-labelledby="hp-settings">
+  <h3 class="hp-name reveal" id="hp-settings">Behind the cog</h3>
+  <ul class="hp-list">
+    <li class="hp-item reveal" id="help-template-mode">
+      <h4 class="hp-q">Keep a frame&#39;s extra layers</h4>
+      <ol class="hp-steps"><li>Open the cog and tick Show/hide Template mode option.</li><li>On the Setup tab, tick Template mode (keep extra layers) under Masters. Layers a frame has that its master doesn&#39;t are now kept instead of removed. The mode is saved in the file, and a [TEMPLATES] masters page turns it on.</li></ol>
+    </li>
+    <li class="hp-item reveal" id="help-smart-blending">
+      <h4 class="hp-q">What Smart blending changes</h4>
+      <ol class="hp-steps"><li>When a frame&#39;s nearest master leaves the hero needing a nudge of 5% or more, Frame Multiplier also works the frame out from the masters&#39; other layouts and keeps the one that needs the least correction. The card then notes which master it took instead of the nearest.</li><li>Untick it and every frame takes the nearest master&#39;s layout. It is on unless you untick it, and saved in the file.</li></ol>
+    </li>
+  </ul>
+</div>
+<div class="hp-group" aria-labelledby="hp-trial">
+  <h3 class="hp-name reveal" id="hp-trial">Trial and price</h3>
+  <ul class="hp-list">
+    <li class="hp-item hp-wide reveal" id="help-price">
+      <h4 class="hp-q">Trial and price</h4>
+      <p class="hp-a">Seven days of full access from the first time you run Frame Multiplier. After that, filling frames is the paid part, at $49 a month: Multiply, Import updates and Multiply this one. Scan, Setup and every setting, the plan and score for every frame, the card and its preview, Import brief with AI, Clear frames and Promote to master stay free. The subscription is through Figma.</p>
+    </li>
+    <li class="hp-item reveal" id="help-privacy">
+      <h4 class="hp-q">Where your work goes</h4>
+      <p class="hp-a">Nowhere. Frame Multiplier makes no network connections. Everything it works out is stored in your Figma file.</p>
+    </li>
+  </ul>
+</div>
+
+  </div>
+</section>
+
+
+  </main>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-legal">
+        <p>Copyright © 2026 Monochrome Systems. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
