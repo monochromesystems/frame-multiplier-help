@@ -627,35 +627,64 @@ function initLiveJobs() {
 // A dashboard's widgets, each a link to its entry beside the window (partials/dashboard.njk): rolling over one, or a click, shows that entry
 // and hides the others, the widget outlined; the first widget's is shown to begin with. Without script every entry
 // shows and each tile jumps to its own.
+// A plugin's dashboard (partials/dashboard.njk): every widget's entry is listed beside the window, and the window stays
+// in view while they scroll past it (css/dashboards/*.css). The entry at the reading line, 60 % down the screen, is
+// the current one: its widget is ringed in the window and the other entries fade back. A click on a widget scrolls to
+// its entry. (The entries' ids are found among the entries themselves: the Included row uses the same app-* ids.)
 function initDashboardDetails() {
   for (const root of document.querySelectorAll(".sd")) {
     const details = [...root.querySelectorAll("[data-detail]")];
-    const links = [...root.querySelectorAll(".sd-window a.widget")];
-    if (!details.length || !links.length) continue;
-    const show = (id) => {
-      details.forEach((d) => { d.hidden = d.id !== id; });
-      links.forEach((a) => {
-        const on = a.getAttribute("href") === `#${id}`;
-        a.classList.toggle("is-active", on);
-        a.toggleAttribute("aria-current", on);
-      });
-    };
-    for (const a of links) {
-      // Rolling over a widget (or tabbing to it) shows its entry; it stays until another is picked, so moving the
-      // pointer off the window to read it does not lose it. A tap or click still opens it, for touch.
-      const open = () => { const id = a.getAttribute("href").slice(1); if (details.some((d) => d.id === id)) show(id); };
-      a.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse" || e.pointerType === "pen") open(); });
-      a.addEventListener("focus", open);
-      a.addEventListener("click", (e) => {
-        const id = a.getAttribute("href").slice(1);
-        if (!details.some((d) => d.id === id)) return;
-        e.preventDefault();
-        show(id);
-      });
-    }
-    // A link to a widget's entry (#widget-template) opens on it; otherwise the first widget's.
-    const wanted = location.hash.slice(1);
-    show(details.some((d) => d.id === wanted) ? wanted : links[0].getAttribute("href").slice(1));
+    if (!details.length) continue;
+    const entryOf = (a) => details.find((d) => `#${d.id}` === a.getAttribute("href"));
+    const links = [...root.querySelectorAll(".sd-window a.widget")].filter(entryOf);
+    followScroll(details, links, entryOf, (a, on) => {
+      a.classList.toggle("is-active", on);
+      a.toggleAttribute("aria-current", on);
+    });
+  }
+}
+
+// Entries stepped through by scrolling (the dashboard's, a panel's tiles): the current entry is the last whose top has
+// passed the reading line, 60 % down the screen (the first until one has). It gets is-current; `mark` is told which of
+// the links points at it. A click on a link scrolls to its entry (`entryOf`).
+function followScroll(entries, links, entryOf, mark) {
+  let at = null, queued = false;
+  const update = () => {
+    queued = false;
+    const line = innerHeight * 0.6;
+    let entry = entries[0];
+    for (const e of entries) if (e.getBoundingClientRect().top <= line) entry = e;
+    if (entry === at) return;
+    at = entry;
+    entries.forEach((e) => e.classList.toggle("is-current", e === entry));
+    links.forEach((a) => mark(a, entryOf(a) === entry));
+  };
+  const queue = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(update);
+  };
+  for (const a of links) {
+    a.addEventListener("click", (e) => {
+      const entry = entryOf(a);
+      e.preventDefault();
+      entry.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
+      history.replaceState(null, "", `#${entry.id}`);
+    });
+  }
+  addEventListener("scroll", queue, { passive: true });
+  addEventListener("resize", queue);
+  update();
+}
+
+// A panel's tiles as steps (partials/panel-tour.njk, a panel with `steps`): every tile's drawing and notes one under
+// another, its tab's tile bar held at the top while they scroll past (main.css). Each tile is its own panel tour.
+function initPanelSteps() {
+  for (const run of document.querySelectorAll("[data-panel-steps]")) {
+    const blocks = [...run.querySelectorAll("[data-step-block]")];
+    const tiles = [...run.querySelectorAll("[data-step]")];
+    const entryOf = (a) => blocks.find((b) => `#${b.id}` === a.getAttribute("href"));
+    followScroll(blocks, tiles, entryOf, (a, on) => a.setAttribute("aria-current", String(on)));
   }
 }
 
@@ -742,6 +771,7 @@ initRollouts();
 initVideos();
 initDemos();
 initPanelTours();
+initPanelSteps();
 initBuilds();
 initJourney();
 initLiveJobs();
